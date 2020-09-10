@@ -24,4 +24,11 @@ class Museum
     @patrons << patron
   end
 
+  def patrons_by_exhibit_interest
+    @exhibits.reduce(Hash.new(Array.new)) do |results, exhibit|
+      results[exhibit] = @patrons.find_all {|patron| patron.interests.include?(exhibit.name)}
+      results
+    end
+  end
+
 end
