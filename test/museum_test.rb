@@ -91,7 +91,6 @@ class MuseumTest < Minitest::Test
     @dmns.add_exhibit(@dead_sea_scrolls)
     @dmns.add_exhibit(@imax)
     @patron_2.add_interest("Dead Sea Scrolls")
-    @patron_1.add_interest("Gems and Minerals")
     @patron_1.add_interest("Dead Sea Scrolls")
     @patron_1.add_interest("IMAX")
     @patron_3.add_interest("Dead Sea Scrolls")
@@ -101,7 +100,7 @@ class MuseumTest < Minitest::Test
     @dmns.stubs(:rand).returns("Johnny")
 
     assert_equal "Johnny", @dmns.draw_lottery_winner(@dead_sea_scrolls)
-    assert_nil @dmns.draw_lottery_winner(@imax)
+    assert_nil @dmns.draw_lottery_winner(@gems_and_minerals)
   end
 
 end
