@@ -19,4 +19,11 @@ class MuseumTest < Minitest::Test
     assert_equal [], @dmns.exhibits
   end
 
+  def test_it_can_have_exhibits
+    assert_equal [], @dmns.exhibits
+    @dmns.add_exhibit(@gems_and_minerals)
+    @dmns.add_exhibit(@dead_sea_scrolls)
+    assert_equal [@gems_and_minerals, @dead_sea_scrolls], @dmns.exhibits
+  end
+
 end
