@@ -37,4 +37,15 @@ class Museum
     end
   end
 
+  def draw_lottery_winner(exhibit)
+    pool = ticket_lottery_contestants(exhibit)
+    if pool.empty?
+      nil
+    elsif pool.count == 1
+      pool[0].name
+    else
+      pool.sample.name
+    end
+  end
+
 end

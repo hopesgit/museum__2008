@@ -1,6 +1,7 @@
 require "./lib/museum"
 require "minitest/autorun"
 require "minitest/pride"
+require "mocha/minitest"
 
 class MuseumTest < Minitest::Test
   def setup
@@ -97,7 +98,7 @@ class MuseumTest < Minitest::Test
     @dmns.admit(@patron_1)
     @dmns.admit(@patron_2)
     @dmns.admit(@patron_3)
-    @dmns.stubs(:rand).returns("Johnny")
+    @dmns.stubs(:sample).returns(@patron_3)
 
     assert_equal "Johnny", @dmns.draw_lottery_winner(@dead_sea_scrolls)
     assert_nil @dmns.draw_lottery_winner(@gems_and_minerals)
